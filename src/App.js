@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-import DisplayProverbs from './components/DisplayProverbs'
+import {Jari} from './components/Jari'
 
 const client = new ApolloClient({
   uri: 'https://jari-backend.herokuapp.com/admin/api',
@@ -11,7 +11,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <DisplayProverbs/>
+      <Jari/>
     </ApolloProvider>
   );
 }
