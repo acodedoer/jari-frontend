@@ -1,21 +1,12 @@
 import React from 'react';
 import ProverbComponent from './Proverb';
-import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import Loading from './Loading';
+import QueryAll from '../queries/QueryAll'
 
 
 const DisplayAllProverbs = (props) => {
-        const {data, loading, error} = useQuery(gql`{
-            allProverbs{
-              proverb
-              literalTags{
-                tag
-              }
-                metaphoricalTags{tag}
-              }
-            }
-            `);
+        const {data, loading, error} = useQuery(QueryAll);
         if (loading) return (<Loading/>);
         if (error) return <p>Error :(</p>;
 

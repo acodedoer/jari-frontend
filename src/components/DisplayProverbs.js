@@ -1,28 +1,40 @@
-import React, {useState} from 'react';
-import DisplayProverbsByMetaphoricalTag from './DisplayProverbsByMetaphoricalTag'
-import DisplayProverbsByLiteralTag from './DisplayProverbsByLiteralTag'
-import DisplayAllProverbs from './DisplayAllProverbs'
 
-const DisplayProverbs = () => {
-    const[mode, setMode] = useState('all');
-    const[literal_tag, setLiteralTag] = useState('');
-    const[metaphorical_tag, setMetaphoricalTag] = useState('');
-    
-    if(mode==='all'){
-      return (
-        <DisplayAllProverbs setMode = {(mode)=>{setMode(mode)}} setLiteralTag={(tag)=>{setLiteralTag(tag); console.log(literal_tag)}} setMetaphoricalTag={(tag)=>{setMetaphoricalTag(tag)}} />
-      )
-    }
-    else if (mode ==='literal'){
-      return (
-        <DisplayProverbsByLiteralTag  tag = {literal_tag} setMode = {(mode)=>{setMode(mode)}} setLiteralTag={(tag)=>{setLiteralTag(tag); console.log(literal_tag)}} setMetaphoricalTag={(tag)=>{setMetaphoricalTag(tag)}}/>
-      )
-    }
-    else if (mode === 'metaphorical'){
-      return (
-        <DisplayProverbsByMetaphoricalTag tag = {metaphorical_tag} setMode = {(mode)=>{setMode(mode)}} setLiteralTag={(tag)=>{setLiteralTag(tag); console.log(literal_tag)}} setMetaphoricalTag={(tag)=>{setMetaphoricalTag(tag)}}/>
-      )
-    }
+import React from 'react'
+import ProverbComponent from './Proverb'
+import {AppContext} from  '../App'
+import DisplayProverbsByLiteralTag from './DisplayProverbsByLiteralTag'
+import DisplayProverbsByMetaphoricalTag from './DisplayProverbsByMetaphoricalTag'
+
+const DisplayProverbs = (props) => {
+  return (
+    <AppContext.Consumer>
+      {(state)=>{
+        if(state.mode === "all"){
+          return(
+            props.proverbs.map((proverb) => (
+              <ProverbComponent proverb={proverb}/> 
+              )
+            )
+          )
+        }
+        else if(state.mode === "literal"){
+          return(
+            <DisplayProverbsByLiteralTag tag={state.literal_tag}/>
+          )
+        }
+        else if(state.mode === "metaphorical"){
+          return(
+            <DisplayProverbsByMetaphoricalTag tag={state.metaphorical_tag}/>
+          )
+        }
+        else{
+          return(
+            <p>Error</p>
+          )
+        }
+}}
+    </AppContext.Consumer>
+  )
 }
 
 export default DisplayProverbs

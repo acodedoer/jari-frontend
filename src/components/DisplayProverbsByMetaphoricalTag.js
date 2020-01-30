@@ -2,6 +2,7 @@ import React from 'react';
 import ProverbComponent from './Proverb';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
+import Loading from './Loading';
 
 const DisplayProverbsByMetaphoricalTag = (props) => {
         const {data, loading, error} = useQuery(gql`{
@@ -19,7 +20,7 @@ const DisplayProverbsByMetaphoricalTag = (props) => {
             }
             }
             `);
-        if (loading) return <p>Loading...</p>;
+        if (loading) return <Loading/>;
         if (error) return <p>Error :(</p>;
 
       return (

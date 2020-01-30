@@ -22,7 +22,7 @@ const LietralTag = (props) => {
         color="primary"
         size="small"
         className={classes.button}
-        onClick={()=>{props.onClick1(props.tag); props.onClick2("literal")}}
+        onClick={()=>{props.onClick1(props.tag); props.onClick2("literal"); props.setNavTitle(props.tag)}}
         startIcon={<LiteralIcon style={{fill: "#ED6A5E"}}/>}
       >
         {props.tag}

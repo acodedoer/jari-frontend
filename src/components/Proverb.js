@@ -9,6 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import LiteralTag from './LiteralTag';
 import MetaphoricalTag from './MetaphoricalTag';
+import {AppContext} from  '../App';
 import clsx from 'clsx';
 
 const useStyles = makeStyles(theme =>({
@@ -37,37 +38,41 @@ const Proverb = (props) => {
   };
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography>
-            {props.proverb.proverb}
-        </Typography>
-      </CardContent>
-
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardActions style={{display: "flex", flexDirection: "row", flexWrap:"wrap"}}>
-
-          {props.proverb.literalTags.map((literalTag)=>(
-              <LiteralTag tag={literalTag.tag} onClick1={props.setLiteralTag} onClick2 = {props.setMode}/>
-          ))}
-
-        {props.proverb.metaphoricalTags.map((metaphoricalTag)=>(
-              <MetaphoricalTag tag={metaphoricalTag.tag} onClick1={props.setMetaphoricalTag} onClick2 = {props.setMode}/>
-          ))}
-          
-        </CardActions>
-      </Collapse>
-      <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-    </Card>
+    <AppContext.Consumer>
+      {(state)=>(
+        <Card className={classes.card}>
+        <CardContent>
+          <Typography>
+              {props.proverb.proverb}
+          </Typography>
+        </CardContent>
+  
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <CardActions style={{display: "flex", flexDirection: "row", flexWrap:"wrap"}}>
+  
+            {props.proverb.literalTags.map((literalTag)=>(
+                <LiteralTag tag={literalTag.tag} onClick1={state.setLiteralTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
+            ))}
+  
+          {props.proverb.metaphoricalTags.map((metaphoricalTag)=>(
+                <MetaphoricalTag tag={metaphoricalTag.tag} onClick1={state.setMetaphoricalTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
+            ))}
+            
+          </CardActions>
+        </Collapse>
+        <IconButton
+            className={clsx(classes.expand, {
+              [classes.expandOpen]: expanded,
+            })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
+          >
+            <ExpandMoreIcon />
+          </IconButton>
+      </Card>
+    )}
+    </AppContext.Consumer>
   );
 }
 

@@ -4,8 +4,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import {makeStyles } from '@material-ui/core/styles';
-import {JariContext} from  './Jari'
 import NavigationMenu from './NavigationMenu'
+import {AppContext} from  '../App'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,7 +31,7 @@ export default function Navigation() {
   const classes = useStyles();
 
   return (
-    <JariContext.Consumer>
+    <AppContext.Consumer>
       {(state)=>(
         <div className={classes.root}  borderRadius = "50%" style={{borderRadius:"50%"}}>
         <AppBar position="static" style={{ background: '#4b67a1' }}>
@@ -45,12 +45,11 @@ export default function Navigation() {
               <NavigationMenu />
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap edge="end" justify="space-between">
-              Jari: {state.mode}
+              Jari{state.navTitle}
             </Typography>
           </Toolbar>
         </AppBar>
-      </div>
-      )}
-      </JariContext.Consumer>
+      </div>)}
+    </AppContext.Consumer>
   );
 }

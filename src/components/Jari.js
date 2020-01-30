@@ -1,41 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Navigation from './Navigation';
-import Content from './Content';
+import { useQuery } from '@apollo/react-hooks';
+import DisplayProverbs from './DisplayProverbs';
+import QueryAll from '../queries/QueryAll';
+import QueryLiteralTags from '../queries/QueryLiteralTags';
+import QueryMetaphoricalTags from '../queries/QueryMetaphoricalTags';
+import Loading from './Loading';
 
-export const JariContext = React.createContext();
 
-export class Jari extends Component{
-    constructor(props) {
-        super(props);
+const Jari = (props) => {
+    const AllProverbs = useQuery(QueryAll);
+    const AllLiteralTags = useQuery(QueryLiteralTags);
+    const AllMetaphoricalTags  = useQuery(QueryMetaphoricalTags);
+    
+    if (AllProverbs.loading || AllLiteralTags.loading || AllMetaphoricalTags.loading) return (<Loading/>);
+    if (AllProverbs.error || AllLiteralTags.error || AllMetaphoricalTags.error) return <p>Error :(</p>;
 
-        this.setMode = (new_mode) => {
-            this.setState({mode: new_mode})
-        }
-
-        this.setLiteralTag = (new_tag) => {
-            this.setState({literal_tag: new_tag})
-        }
-
-        this.setMetaphoricalTag = (new_tag) => {
-            this.setState({metaphorical_tag: new_tag})
-        }
-
-        this.state = {
-            mode: "all",
-            literal_tag: "",
-            metaphorical_tag: "",
-            setMode: this.setMode,
-            setLiteralTag: this.setLiteralTag,
-            setMetaphoricalTag: this.setMetaphoricalTag
-        };
-    }
-
-    render(){
-        return(
-            <JariContext.Provider value = {this.state}>
-                <Navigation/>
-                <Content/>
-            </JariContext.Provider>
-        )
-    }
+    return(
+        <React.Fragment>
+            <Navigation literal_tags={AllLiteralTags.data} metaphorical_tags={AllMetaphoricalTags.data}/>
+            <div id="content"><DisplayProverbs proverbs={AllProverbs.data.allProverbs}/></div>
+        </React.Fragment>
+    )
 }
+
+export default Jari

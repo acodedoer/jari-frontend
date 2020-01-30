@@ -10,12 +10,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import AllIcon from '@material-ui/icons/DoneAll';
 import AboutIcon from '@material-ui/icons/Info';
-
 import MetaphoricalIcon from '@material-ui/icons/Comment';
-
 import Collapse from '@material-ui/core/Collapse';
 import LiteralIcon from '@material-ui/icons/ModeComment';
-import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import LiteralTagsLinks from './LiteralTagsLinks';

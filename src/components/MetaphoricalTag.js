@@ -22,7 +22,7 @@ return (
   size="small"
   className={classes.button}
   startIcon={<MetaphoricalIcon style={{fill: "#FFC857"}}/>}
-  onClick={()=>{props.onClick1(props.tag); props.onClick2("metaphorical")}}
+  onClick={()=>{props.onClick1(props.tag); props.onClick2("metaphorical"); props.setNavTitle(props.tag)}}
 >
   {props.tag}
 </Button>
