@@ -6,8 +6,10 @@ import MetaphoricalIcon from '@material-ui/icons/Comment';
   const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
-      backgroundColor: '#FBB13C',
-      textTransform: "none"
+      backgroundColor: '#4b67a1',
+      textTransform: "none",
+      '&:hover': {
+        backgroundColor: '#3b517e'}
     },
   }));
 
@@ -19,11 +21,12 @@ return (
   color="primary"
   size="small"
   className={classes.button}
-  startIcon={<MetaphoricalIcon/>}
+  startIcon={<MetaphoricalIcon style={{fill: "#FFC857"}}/>}
   onClick={()=>{props.onClick1(props.tag); props.onClick2("metaphorical")}}
 >
   {props.tag}
 </Button>
+
 );
 }
 

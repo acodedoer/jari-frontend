@@ -31,7 +31,7 @@ const DisplayLiteralTagsLinks = () => {
       data.allLiteralTags.map(({tag}) => (
         <ListItem button className={classes.nested}>
             <ListItemIcon>
-                <LiteralIcon/>
+                <LiteralIcon style={{fontSize:"medium", fill: "#ED6A5E"}}/>
                 </ListItemIcon>
             <ListItemText primary= {tag} />
         </ListItem>

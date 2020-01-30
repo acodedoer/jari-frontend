@@ -13,7 +13,6 @@ import clsx from 'clsx';
 
 const useStyles = makeStyles(theme =>({
   card: {
-    backgroundColor: 'rgb(250, 251, 252)',
     marginTop: "1em",
     marginBottom: "1em",
   },

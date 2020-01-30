@@ -3,7 +3,9 @@ import DisplayProverbs from './DisplayProverbs'
 
 const Content = () =>{
     return(
-        <DisplayProverbs />
+        <div id="content">
+            <DisplayProverbs />
+        </div>
     )
 }
 

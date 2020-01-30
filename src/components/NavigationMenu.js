@@ -7,22 +7,27 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
+import AllIcon from '@material-ui/icons/DoneAll';
+import AboutIcon from '@material-ui/icons/Info';
 
-import ListSubheader from '@material-ui/core/ListSubheader';
+import MetaphoricalIcon from '@material-ui/icons/Comment';
+
 import Collapse from '@material-ui/core/Collapse';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import LiteralIcon from '@material-ui/icons/ModeComment';
 import SendIcon from '@material-ui/icons/Send';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
-import StarBorder from '@material-ui/icons/StarBorder';
 import LiteralTagsLinks from './LiteralTagsLinks';
 import MetaphoricalTagsLinks from './MetaphoricalTagsLinks';
 
 
 const useStyles = makeStyles({
+  button: {
+    '&:hover': {
+      backgroundColor: '#3b517e'}
+  },
+
   list: {
     width: 250,
   },
@@ -69,16 +74,16 @@ export default function NavigationMenu() {
     >
       <ListItem button>
         <ListItemIcon>
-          <SendIcon />
+          <AllIcon style={{color:'#4b67a1'}} />
         </ListItemIcon>
-        <ListItemText primary="All" />
+        <ListItemText primary="All proverbs" />
       </ListItem>
 
       <ListItem button onClick={handleClickLTags}>
         <ListItemIcon>
-          <DraftsIcon />
+        <LiteralIcon style={{fill: "#ED6A5E"}}/>
         </ListItemIcon>
-        <ListItemText primary="Literal Tags" />
+        <ListItemText primary="Literal tags" />
         {openLTags ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -92,9 +97,9 @@ export default function NavigationMenu() {
 
       <ListItem button onClick={handleClickMTags}>
         <ListItemIcon>
-          <InboxIcon />
+        <MetaphoricalIcon style={{fill: "#FFC857"}}/>
         </ListItemIcon>
-        <ListItemText primary="Metaphorical Tags" />
+        <ListItemText primary="Metaphorical tags" />
         {openMTags ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -108,9 +113,9 @@ export default function NavigationMenu() {
 
       <ListItem button>
         <ListItemIcon>
-          <SendIcon />
+          <AboutIcon style={{color:"#55b092"}} />
         </ListItemIcon>
-        <ListItemText primary="About" />
+        <ListItemText primary="About Jari" />
       </ListItem>
     </List>
     </div>
@@ -118,7 +123,7 @@ export default function NavigationMenu() {
 
   return (
     <div>
-      <Button onClick={toggleDrawer('left', true)}> <MenuIcon/> </Button>
+      <Button className={classes.button} onClick={toggleDrawer('left', true)}> <MenuIcon style={{color:"white"}}/> </Button>
       <Drawer open={state.left} onClose={toggleDrawer('left', false)}>
         {sideList('left')}
       </Drawer>

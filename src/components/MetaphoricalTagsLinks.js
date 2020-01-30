@@ -31,7 +31,7 @@ const DisplayLiteralTagsLinks = () => {
       data.allMetaphoricalTags.map(({tag}) => (
         <ListItem button className={classes.nested}>
             <ListItemIcon>
-                <MetaphoricalIcon/>
+                <MetaphoricalIcon style={{fontSize:"medium", fill: "#FFC857"}}/>
                 </ListItemIcon>
             <ListItemText primary= {tag} />
         </ListItem>
