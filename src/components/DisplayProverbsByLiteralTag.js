@@ -3,6 +3,7 @@ import ProverbComponent from './Proverb';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import Loading from './Loading';
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
 const DisplayProverbsByLiteralTag = (props) => {

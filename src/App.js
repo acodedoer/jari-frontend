@@ -15,7 +15,10 @@ class App extends Component{
     super(props);
 
     this.setNavTitle = (title) => {
-      this.setState({navTitle: ": "+title})
+      if(title !== "")
+        {this.setState({navTitle: ": "+title})}
+      else
+        {this.setState({navTitle: ""})}
     }
 
     this.setMode = (new_mode) => {

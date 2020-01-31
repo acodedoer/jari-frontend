@@ -20,6 +20,9 @@ import MetaphoricalTagsLinks from './MetaphoricalTagsLinks';
 
 
 const useStyles = makeStyles({
+  root:{
+    padding:"0px"
+  },
   button: {
     '&:hover': {
       backgroundColor: '#3b517e'}
@@ -31,9 +34,17 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  divider: {
+    padding: "1px",
+    backgroundColor:"#4b67a1" ,
+  },
+  item: {
+    marginTop:"7px",
+    marginBottom:"7px"
+  }
 });
 
-export default function NavigationMenu() {
+export default function NavigationMenu(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: false,
@@ -69,15 +80,18 @@ export default function NavigationMenu() {
       component="nav"
       className={classes.root}
     >
-      <ListItem button>
-        <ListItemIcon>
+      <Divider   className={classes.divider}/>
+      <ListItem button onClick={()=>{setState({ ...state, [side]: false }); props.setMode("all"); props.setNavTitle("")}}>
+        <ListItemIcon className={classes.item}>
           <AllIcon style={{color:'#4b67a1'}} />
         </ListItemIcon>
         <ListItemText primary="All proverbs" />
       </ListItem>
 
+      <Divider   className={classes.divider}/>
+
       <ListItem button onClick={handleClickLTags}>
-        <ListItemIcon>
+        <ListItemIcon className={classes.item}>
         <LiteralIcon style={{fill: "#ED6A5E"}}/>
         </ListItemIcon>
         <ListItemText primary="Literal tags" />
@@ -86,14 +100,13 @@ export default function NavigationMenu() {
 
       <Collapse in={openLTags} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Divider/>
-              <LiteralTagsLinks/>
-          <Divider/>
+        <Divider variant="inset" component="li" className={classes.divider}/>
+              <LiteralTagsLinks literal_tags={props.literal_tags} toggleMenu={()=>setState({ ...state, [side]: false })} />
         </List>
       </Collapse>
-
+      <Divider  className={classes.divider}/>
       <ListItem button onClick={handleClickMTags}>
-        <ListItemIcon>
+        <ListItemIcon className={classes.item}>
         <MetaphoricalIcon style={{fill: "#FFC857"}}/>
         </ListItemIcon>
         <ListItemText primary="Metaphorical tags" />
@@ -102,18 +115,19 @@ export default function NavigationMenu() {
 
       <Collapse in={openMTags} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <Divider/>
-              <MetaphoricalTagsLinks/>
-          <Divider/>
+        <Divider variant="inset" component="li" className={classes.divider}/>
+              <MetaphoricalTagsLinks metaphorical_tags ={props.metaphorical_tags} toggleMenu={()=>setState({ ...state, [side]: false })}/>
         </List>
       </Collapse>
+      <Divider  className={classes.divider}/>
 
-      <ListItem button>
-        <ListItemIcon>
+      <ListItem button onClick={toggleDrawer(side, false)}>
+        <ListItemIcon className={classes.item}>
           <AboutIcon style={{color:"#55b092"}} />
         </ListItemIcon>
         <ListItemText primary="About Jari" />
       </ListItem>
+      <Divider className={classes.divider}/>
     </List>
     </div>
   );

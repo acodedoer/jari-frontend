@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Navigation() {
+export default function Navigation(props) {
   const classes = useStyles();
 
   return (
@@ -42,7 +42,7 @@ export default function Navigation() {
               color="inherit"
               aria-label="open drawer"
             >
-              <NavigationMenu />
+              <NavigationMenu setMode ={state.setMode} setNavTitle= {state.setNavTitle} literal_tags={props.literal_tags} metaphorical_tags ={props.metaphorical_tags}/>
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap edge="end" justify="space-between">
               Jari{state.navTitle}

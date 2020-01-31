@@ -1,3 +1,15 @@
+.error{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.error-logo{
+    transform: scale(0.3);
+   -webkit-transform: scale(0.3);
+}
 .loading{
     display: flex;
     flex-direction:column;
@@ -5,11 +17,37 @@
     align-items: center;
     height: 80vh;
     transform: scale(0.3);
-    animation: spin 1s ease-in-out infinite;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
     animation-direction: alternate-reverse;
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate-reverse;
 }
 
-@keyframes spin { 100% { -webkit-transform: scale(0.3) rotate(360deg); transform:scale(0.3) rotate(360deg); transform-origin: center center } }
+@keyframes spin { 100% 
+    {
+        transform:scale(0.3) rotate(360deg); 
+        transform-origin: center center 
+    } 
+}
+
+
+@-webkit-keyframes spin { 0% 
+    {
+        -webkit-transform:scale(0.3) rotate(0deg); 
+        -webkit-transform-origin: center center 
+    }
+    100%{
+        -webkit-transform:scale(0.3) rotate(360deg); 
+        -webkit-transform-origin: center center
+    }
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
