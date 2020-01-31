@@ -1,6 +1,6 @@
 
 import React from 'react'
-import ProverbComponent from './Proverb'
+import Display from './Display'
 import {AppContext} from  '../App'
 import DisplayProverbsByLiteralTag from './DisplayProverbsByLiteralTag'
 import DisplayProverbsByMetaphoricalTag from './DisplayProverbsByMetaphoricalTag'
@@ -11,11 +11,8 @@ const DisplayProverbs = (props) => {
       {(state)=>{
         if(state.mode === "all"){
           return(
-            props.proverbs.map((proverb) => (
-              <ProverbComponent proverb={proverb}/> 
-              )
+            <Display proverbs = {props.proverbs}/>
             )
-          )
         }
         else if(state.mode === "literal"){
           return(

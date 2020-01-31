@@ -1,9 +1,8 @@
 import React from 'react';
-import ProverbComponent from './Proverb';
+import Display from './Display';
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/react-hooks';
 import Loading from './Loading';
-import InfiniteScroll from "react-infinite-scroll-component";
 
 
 const DisplayProverbsByLiteralTag = (props) => {
@@ -26,8 +25,7 @@ const DisplayProverbsByLiteralTag = (props) => {
   if (error) return <p>Error :(</p>;
 
   return (
-    data.allProverbs.map((proverb) => (
-        <ProverbComponent setMode = {props.setMode} proverb ={proverb} setLiteralTag={props.setLiteralTag} setMetaphoricalTag={props.setMetaphoricalTag} /> ))
+    <Display proverbs= {data.allProverbs}/>
   );
 }
 
