@@ -20,6 +20,8 @@ const useStyles = makeStyles(theme => ({
   },
   title: {
     flexGrow: 1,
+    width: "100%",
+    textAlign: "right",
     marginLeft: 'auto',
     [theme.breakpoints.up('xs')]: {
       display: 'block',
@@ -44,7 +46,7 @@ export default function Navigation(props) {
             >
               <NavigationMenu setMode ={state.setMode} setNavTitle= {state.setNavTitle} literal_tags={props.literal_tags} metaphorical_tags ={props.metaphorical_tags}/>
             </IconButton>
-            <Typography className={classes.title} variant="h6" noWrap edge="end" justify="space-between">
+            <Typography className={classes.title} variant="h6" noWrap edge="end" justify="space-between" margin-left="auto">
               Jari{state.navTitle}
             </Typography>
           </Toolbar>
