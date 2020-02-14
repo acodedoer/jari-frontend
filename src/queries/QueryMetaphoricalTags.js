@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 const QueryMetaphoricalTags = gql`{
-  allMetaphoricalTags(orderBy: "tag_ASC"){
-        tag
+  allMetaphoricalTags(orderBy: "name_ASC"){
+        name
     }}
     `;
 

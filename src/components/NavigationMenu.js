@@ -81,7 +81,7 @@ export default function NavigationMenu(props) {
       className={classes.root}
     >
       <Divider   className={classes.divider}/>
-      <ListItem button onClick={()=>{setState({ ...state, [side]: false }); props.setMode("all"); props.setNavTitle("")}}>
+      <ListItem button onClick={()=>{setState({ ...state, [side]: false }); props.setAbout(false); props.setMode("all"); props.setNavTitle("")}}>
         <ListItemIcon className={classes.item}>
           <AllIcon style={{color:'#4b67a1'}} />
         </ListItemIcon>
@@ -101,7 +101,7 @@ export default function NavigationMenu(props) {
       <Collapse in={openLTags} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
         <Divider variant="inset" component="li" className={classes.divider}/>
-              <LiteralTagsLinks literal_tags={props.literal_tags} toggleMenu={()=>setState({ ...state, [side]: false })} />
+              <LiteralTagsLinks literal_tags={props.literal_tags} setAbout={props.setAbout} toggleMenu={()=>setState({ ...state, [side]: false })} />
         </List>
       </Collapse>
       <Divider  className={classes.divider}/>
@@ -116,12 +116,12 @@ export default function NavigationMenu(props) {
       <Collapse in={openMTags} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
         <Divider variant="inset" component="li" className={classes.divider}/>
-              <MetaphoricalTagsLinks metaphorical_tags ={props.metaphorical_tags} toggleMenu={()=>setState({ ...state, [side]: false })}/>
+              <MetaphoricalTagsLinks metaphorical_tags ={props.metaphorical_tags} setAbout={props.setAbout} toggleMenu={()=>setState({ ...state, [side]: false })}/>
         </List>
       </Collapse>
       <Divider  className={classes.divider}/>
 
-      <ListItem button onClick={toggleDrawer(side, false)}>
+      <ListItem button onClick={()=>{props.setAbout(true); setState({ ...state, [side]: false })}}>
         <ListItemIcon className={classes.item}>
           <AboutIcon style={{color:"#55b092"}} />
         </ListItemIcon>

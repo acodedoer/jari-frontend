@@ -1,11 +1,11 @@
 import gql from 'graphql-tag';
 const QueryAll = gql`{
     allProverbs{
-      proverb
+      name
       literalTags{
-        tag
+        name
       }
-        metaphoricalTags{tag}
+        metaphoricalTags{name}
       }
     }`;
 

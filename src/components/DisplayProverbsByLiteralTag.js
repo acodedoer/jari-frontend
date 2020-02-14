@@ -9,15 +9,15 @@ const DisplayProverbsByLiteralTag = (props) => {
   const {data, loading, error} = useQuery(gql`{
       allProverbs(where: {
           literalTags_some: {
-            tag : "${props.tag}"
+            name : "${props.tag}"
           }
         }
       ){
-      proverb
+      name
       literalTags{
-        tag
+        name
       }
-        metaphoricalTags{tag}
+        metaphoricalTags{name}
       }
       }
       `);

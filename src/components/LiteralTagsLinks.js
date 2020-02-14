@@ -21,11 +21,11 @@ const DisplayLiteralTagsLinks = (props) => {
       <AppContext.Consumer>
         {(state)=>(
           props.literal_tags.map((tag) =>(
-            <ListItem button className={classes.nested} onClick={()=>{state.setLiteralTag(tag.tag); state.setMode("literal"); state.setNavTitle(tag.tag); props.toggleMenu()}}>
+            <ListItem button className={classes.nested} onClick={()=>{state.setAbout(false); state.setLiteralTag(tag.name); state.setMode("literal"); state.setNavTitle(tag.name); props.toggleMenu()}}>
                 <ListItemIcon>
                     <LiteralIcon style={{fontSize:"medium", fill: "#ED6A5E"}}/>
                     </ListItemIcon>
-                <ListItemText primary= {tag.tag} />
+                <ListItemText primary= {tag.name} />
             </ListItem>
           ))
         )}

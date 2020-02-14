@@ -36,6 +36,10 @@ class App extends Component{
       console.log(this.state.metaphorical_tag)
     }
 
+    this.setAbout = (state)=>{
+      this.setState({about: state})
+    }
+
     this.state = {
       mode: "all",
       literal_tag: "",
@@ -44,7 +48,9 @@ class App extends Component{
       setLiteralTag: this.setLiteralTag,
       setMetaphoricalTag: this.setMetaphoricalTag,
       setNavTitle: this.setNavTitle,
-      navTitle: ""
+      navTitle: "",
+      about: false,
+      setAbout: this.setAbout
     };
   }
 
@@ -52,7 +58,7 @@ class App extends Component{
     return (
       <AppContext.Provider value = {this.state}>
         <ApolloProvider client={client}>
-          <Jari/>
+          <Jari about={this.state.about} setAbout={this.state.setAbout}/>
         </ApolloProvider>
       </AppContext.Provider>
     );

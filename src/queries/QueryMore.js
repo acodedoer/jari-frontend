@@ -6,9 +6,9 @@ const QueryMore = gql`
       id
       proverb
       literalTags{
-        tag
+        name
       }
-        metaphoricalTags{tag}
+        metaphoricalTags{name}
       }
     }`;
 

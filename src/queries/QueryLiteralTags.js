@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 const QueryLiteralTags = gql`{
-  allLiteralTags(orderBy: "tag_ASC"){
-        tag
+  allLiteralTags(orderBy: "name_ASC"){
+        name
     }}
     `;
 

@@ -21,11 +21,11 @@ const DisplayMetaphoricalTagsLinks = (props) => {
       <AppContext.Consumer>
         {(state)=>(
           props.metaphorical_tags.map((tag) =>(
-            <ListItem button className={classes.nested} onClick={()=>{state.setMetaphoricalTag(tag.tag); state.setMode("metaphorical"); state.setNavTitle(tag.tag); props.toggleMenu()}}>
+            <ListItem button className={classes.nested} onClick={()=>{state.setAbout(false); state.setMetaphoricalTag(tag.name); state.setMode("metaphorical"); state.setNavTitle(tag.name); props.toggleMenu()}}>
                 <ListItemIcon>
                     <MetaphoricalIcon style={{fontSize:"medium", fill: "#FFC857"}}/>
                     </ListItemIcon>
-                <ListItemText primary= {tag.tag} />
+                <ListItemText primary= {tag.name} />
             </ListItem>
           ))
         )}

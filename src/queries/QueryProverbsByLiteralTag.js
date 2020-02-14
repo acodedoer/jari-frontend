@@ -1,17 +1,17 @@
 import gql from 'graphql-tag';
 
-const createQuery = (tag) => (gql`{
+const createQuery = (name) => (gql`{
     allProverbs(where: {
         literalTags_some: {
-          tag : "${tag}"
+          name : "${name}"
         }
       }
     ){
     proverb
     literalTags{
-      tag
+      name
     }
-      metaphoricalTags{tag}
+      metaphoricalTags{name}
     }
     }
 `)

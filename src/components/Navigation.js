@@ -44,7 +44,7 @@ export default function Navigation(props) {
               color="inherit"
               aria-label="open drawer"
             >
-              <NavigationMenu setMode ={state.setMode} setNavTitle= {state.setNavTitle} literal_tags={props.literal_tags} metaphorical_tags ={props.metaphorical_tags}/>
+              <NavigationMenu setMode ={state.setMode} setNavTitle= {state.setNavTitle} literal_tags={props.literal_tags} metaphorical_tags ={props.metaphorical_tags} setAbout ={state.setAbout}/>
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap edge="end" justify="space-between" margin-left="auto">
               Jari{state.navTitle}

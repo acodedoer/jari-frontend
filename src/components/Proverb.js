@@ -43,7 +43,7 @@ const Proverb = (props) => {
         <Card className={classes.card}>
         <CardContent>
           <Typography>
-              {props.proverb.proverb}
+              {props.proverb.name}
           </Typography>
         </CardContent>
   
@@ -51,11 +51,11 @@ const Proverb = (props) => {
           <CardActions style={{display: "flex", flexDirection: "row", flexWrap:"wrap"}}>
   
             {props.proverb.literalTags.map((literalTag)=>(
-                <LiteralTag tag={literalTag.tag} onClick1={state.setLiteralTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
+                <LiteralTag tag={literalTag.name} onClick1={state.setLiteralTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
             ))}
   
           {props.proverb.metaphoricalTags.map((metaphoricalTag)=>(
-                <MetaphoricalTag tag={metaphoricalTag.tag} onClick1={state.setMetaphoricalTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
+                <MetaphoricalTag tag={metaphoricalTag.name} onClick1={state.setMetaphoricalTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
             ))}
             
           </CardActions>
