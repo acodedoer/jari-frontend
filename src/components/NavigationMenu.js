@@ -17,6 +17,9 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import LiteralTagsLinks from './LiteralTagsLinks';
 import MetaphoricalTagsLinks from './MetaphoricalTagsLinks';
+import LanguageIcon from '@material-ui/icons/Translate';
+import Language from './Language'
+import {ABOUT, ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS, LANGUAGE} from '../langauge/MenuLanguage'
 
 
 const useStyles = makeStyles({
@@ -85,7 +88,7 @@ export default function NavigationMenu(props) {
         <ListItemIcon className={classes.item}>
           <AllIcon style={{color:'#4b67a1'}} />
         </ListItemIcon>
-        <ListItemText primary="All proverbs" />
+        {props.language==='Hausa'?<ListItemText primary={ALLPROVERBS.hausa} />:<ListItemText primary={ALLPROVERBS.english} />}
       </ListItem>
 
       <Divider   className={classes.divider}/>
@@ -94,7 +97,7 @@ export default function NavigationMenu(props) {
         <ListItemIcon className={classes.item}>
         <LiteralIcon style={{fill: "#ED6A5E"}}/>
         </ListItemIcon>
-        <ListItemText primary="Literal tags" />
+        {props.language==='Hausa'?<ListItemText primary={LITERALTAGS.hausa} />:<ListItemText primary={LITERALTAGS.english} />}
         {openLTags ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -109,7 +112,7 @@ export default function NavigationMenu(props) {
         <ListItemIcon className={classes.item}>
         <MetaphoricalIcon style={{fill: "#FFC857"}}/>
         </ListItemIcon>
-        <ListItemText primary="Metaphorical tags" />
+        {props.language==='Hausa'?<ListItemText primary={METAPHORICALTAGS.hausa} />:<ListItemText primary={METAPHORICALTAGS.english} />}
         {openMTags ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -125,7 +128,14 @@ export default function NavigationMenu(props) {
         <ListItemIcon className={classes.item}>
           <AboutIcon style={{color:"#55b092"}} />
         </ListItemIcon>
-        <ListItemText primary="About Jari" />
+        {props.language==='Hausa'?<ListItemText primary={ABOUT.hausa} />:<ListItemText primary={ABOUT.english} />}
+      </ListItem>
+      <Divider className={classes.divider}/>
+      <ListItem button >
+        <ListItemIcon className={classes.item}>
+          <LanguageIcon />
+        </ListItemIcon>
+        <Language setLanguage={props.setLanguage}/>
       </ListItem>
       <Divider className={classes.divider}/>
     </List>

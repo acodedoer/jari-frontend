@@ -8,6 +8,7 @@ import QueryMetaphoricalTags from '../queries/QueryMetaphoricalTags';
 import Loading from './Loading';
 import Error from './Error'
 import About from './About'
+import AboutStuff from './AboutStuff'
 
 const Jari = (props) => {
     const AllProverbs = useQuery(QueryAll);
@@ -21,7 +22,7 @@ const Jari = (props) => {
     return(
         <React.Fragment>
             <Navigation literal_tags={AllLiteralTags.data.allLiteralTags} metaphorical_tags={AllMetaphoricalTags.data.allMetaphoricalTags}/>
-            {props.about? <About/>: <div id="content"><DisplayProverbs proverbs={AllProverbs.data.allProverbs}/></div>  }
+            {props.about?  <div id={'about'}><About/><AboutStuff/> </div>: <div id="content"><DisplayProverbs proverbs={AllProverbs.data.allProverbs}/></div>  }
         </React.Fragment>
     )
 }

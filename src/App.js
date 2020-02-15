@@ -40,6 +40,9 @@ class App extends Component{
       this.setState({about: state})
     }
 
+    this.setLanguage = (language) => {
+      this.setState({language:language})
+    }
     this.state = {
       mode: "all",
       literal_tag: "",
@@ -50,7 +53,9 @@ class App extends Component{
       setNavTitle: this.setNavTitle,
       navTitle: "",
       about: false,
-      setAbout: this.setAbout
+      setAbout: this.setAbout,
+      language:"Hausa",
+      setLanguage:this.setLanguage
     };
   }
 
