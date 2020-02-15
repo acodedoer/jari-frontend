@@ -1,6 +1,9 @@
 import gql from 'graphql-tag';
 const QueryAll = gql`{
-    allProverbs{
+    allProverbs(where: {
+        publish : true
+      }
+    ){
       name
       literalTags{
         name

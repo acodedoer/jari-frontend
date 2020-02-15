@@ -7,6 +7,7 @@ import Loading from './Loading';
 const DisplayProverbsByMetaphoricalTag = (props) => {
         const {data, loading, error} = useQuery(gql`{
             allProverbs(where: {
+              publish : true,
                 metaphoricalTags_some: {
                   name : "${props.tag}"
                 }

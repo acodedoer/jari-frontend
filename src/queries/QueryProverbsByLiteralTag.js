@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 const createQuery = (name) => (gql`{
-    allProverbs(where: {
+    allProverbs(where: {publish:true,
         literalTags_some: {
           name : "${name}"
         }
