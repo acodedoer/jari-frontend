@@ -22,7 +22,7 @@ const Jari = (props) => {
     return(
         <React.Fragment>
             <Navigation literal_tags={AllLiteralTags.data.allLiteralTags} metaphorical_tags={AllMetaphoricalTags.data.allMetaphoricalTags}/>
-            {props.about?  <div id={'about'}><About/><AboutStuff/> </div>: <div id="content"><DisplayProverbs proverbs={AllProverbs.data.allProverbs}/></div>  }
+            {props.about?  <div id={'about'}><About/><AboutStuff/></div>: <div id="content"><DisplayProverbs proverbs={AllProverbs.data.allProverbs}/></div>  }
         </React.Fragment>
     )
 }

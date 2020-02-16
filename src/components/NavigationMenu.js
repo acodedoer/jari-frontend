@@ -19,7 +19,7 @@ import LiteralTagsLinks from './LiteralTagsLinks';
 import MetaphoricalTagsLinks from './MetaphoricalTagsLinks';
 import LanguageIcon from '@material-ui/icons/Translate';
 import Language from './Language'
-import {ABOUT, ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS, LANGUAGE} from '../langauge/MenuLanguage'
+import {ABOUT, ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS} from '../Translations/MenuTranslations'
 
 
 const useStyles = makeStyles({
@@ -124,7 +124,7 @@ export default function NavigationMenu(props) {
       </Collapse>
       <Divider  className={classes.divider}/>
 
-      <ListItem button onClick={()=>{props.setAbout(true); setState({ ...state, [side]: false })}}>
+      <ListItem button onClick={()=>{props.setAbout(true); props.setMode('about'); if(props.language==='Hausa'){props.setNavTitle(ABOUT.hausa)} else{props.setNavTitle(ABOUT.english)}; setState({ ...state, [side]: false })}}>
         <ListItemIcon className={classes.item}>
           <AboutIcon style={{color:"#55b092"}} />
         </ListItemIcon>

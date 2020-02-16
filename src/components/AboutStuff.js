@@ -5,69 +5,94 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {AppContext} from  '../App'
+import {ABOUTDESCRIPTION, FUTUREPLANS, FUTUREPLANSDESCRIPTION, CONTRIBUTORS, CONTRIBUTORSDESCRIPTION, CONTRIBUTORSLIST, CONTACT, CONTACTDESCRIPTION} from '../Translations/AboutTranslations'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   root: {
-   marginTop:'1em'
+    minWidth: 275,
+    marginTop: "1em",
   },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
+  bullet: {
+    display: 'inline-block',
+    margin: '0 2px',
+    transform: 'scale(0.8)',
   },
-}));
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
+
+const ListItems = (props) => (
+  props.children.map((item) => (
+    <div style={{paddingBottom:"1em"}}>{item}</div>
+  ))   
+)
 
 export default function About() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Future Plans</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+    <AppContext.Consumer>
+      {(state)=>(
+        <div className={classes.root}>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>
+              {state.language === 'Hausa'? FUTUREPLANS.hausa : FUTUREPLANS.english }
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography variant="body2" component="p" color="textPrimary">
+              <ListItems>
+               {state.language === 'Hausa'? FUTUREPLANSDESCRIPTION.hausa : FUTUREPLANSDESCRIPTION.english }
+              </ListItems>  
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Contributors</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>
+            {state.language === 'Hausa'? CONTRIBUTORS.hausa : CONTRIBUTORS.english }
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography variant="body2" component="p" color="textPrimary">
+              {state.language === 'Hausa'? CONTRIBUTORSDESCRIPTION.hausa : CONTRIBUTORSDESCRIPTION.english }
+              <ListItems>{CONTRIBUTORSLIST}</ListItems>
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Get in touch</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-    </div>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel2a-content"
+            id="panel2a-header"
+          >
+            <Typography className={classes.heading}>
+              {state.language === 'Hausa'? CONTACT.hausa : CONTACT.english }
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography variant="body2" component="p" color="textPrimary">
+            {state.language === 'Hausa'? CONTACTDESCRIPTION.hausa : CONTACTDESCRIPTION.english }
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+      </div>)}
+    </AppContext.Consumer>
   );
 }
