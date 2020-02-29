@@ -3,9 +3,10 @@ import './App.css';
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import Jari from './components/Jari';
+const URI = "https://jari-backend.herokuapp.com/admin/api"
 
 const client = new ApolloClient({
-  uri: 'https://jari-backend.herokuapp.com/admin/api',
+  uri: URI,
 });
 
 export const AppContext = React.createContext();
@@ -42,7 +43,22 @@ class App extends Component{
 
     this.setLanguage = (language) => {
       this.setState({language:language})
+      localStorage.setItem('language', language);
     }
+
+    this.initLanguage =()=>{
+      if(localStorage.getItem('language')==="Hausa"){
+        return "Hausa"
+      }
+      else if(localStorage.getItem('language')==="English"){
+        return "English"
+      }
+      else{
+        localStorage.setItem('language', "English");
+        return "English"
+      }
+    }
+
     this.state = {
       mode: "all",
       literal_tag: "",
@@ -54,16 +70,16 @@ class App extends Component{
       navTitle: "",
       about: false,
       setAbout: this.setAbout,
-      language:"Hausa",
+      language:this.initLanguage(),
       setLanguage:this.setLanguage
     };
   }
 
-  render(){
+  render(){    
     return (
       <AppContext.Provider value = {this.state}>
         <ApolloProvider client={client}>
-          <Jari about={this.state.about} setAbout={this.state.setAbout}/>
+          <Jari about={this.state.about} setAbout={this.state.setAbout} language={this.state.language}/>
         </ApolloProvider>
       </AppContext.Provider>
     );

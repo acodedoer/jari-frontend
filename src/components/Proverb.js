@@ -50,12 +50,12 @@ const Proverb = (props) => {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardActions style={{display: "flex", flexDirection: "row", flexWrap:"wrap"}}>
   
-            {props.proverb.literalTags.map((literalTag)=>(
-                <LiteralTag tag={literalTag.name} onClick1={state.setLiteralTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
+            {props.proverb.literalTags.map((literalTag, index)=>(
+                <LiteralTag key={index} tag={literalTag.name} onClick1={state.setLiteralTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
             ))}
   
-          {props.proverb.metaphoricalTags.map((metaphoricalTag)=>(
-                <MetaphoricalTag tag={metaphoricalTag.name} onClick1={state.setMetaphoricalTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
+          {props.proverb.metaphoricalTags.map((metaphoricalTag, index)=>(
+                <MetaphoricalTag key={index} tag={metaphoricalTag.name} onClick1={state.setMetaphoricalTag} onClick2 = {state.setMode} setNavTitle ={state.setNavTitle}/>
             ))}
             
           </CardActions>

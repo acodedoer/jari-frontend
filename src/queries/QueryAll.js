@@ -3,7 +3,7 @@ const QueryAll = gql`{
     allProverbs(where: {
         publish : true
       }
-    ){
+    ) {
       name
       literalTags{
         name

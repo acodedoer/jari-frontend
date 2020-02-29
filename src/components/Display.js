@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProverbComponent from './Proverb'
 import InfiniteScroll from "react-infinite-scroll-component";
+import {LOADING} from '../translations/MenuTranslations'
 
 class Display extends Component {
     constructor(props) {
@@ -25,11 +26,11 @@ render(){
           dataLength={this.props.proverbs.slice(0, this.state.end).length}
           next={this.fetchMore}
           hasMore={this.state.end >= this.props.proverbs.length ? false : true}
-          loader={<h4>Loading...</h4>}
+          loader={this.props.language==='Hausa'?<h5>{LOADING.hausa}</h5>:<h5>{LOADING.english}</h5>}
         >
 
-        {this.props.proverbs.slice(0, this.state.end).map((proverb) => (
-                    <ProverbComponent setMode = {this.props.setMode} proverb ={proverb} setLiteralTag={this.props.setLiteralTag} setMetaphoricalTag={this.props.setMetaphoricalTag} /> 
+        {this.props.proverbs.slice(0, this.state.end).map((proverb, index) => (
+                    <ProverbComponent key = {index} setMode = {this.props.setMode} proverb ={proverb} setLiteralTag={this.props.setLiteralTag} setMetaphoricalTag={this.props.setMetaphoricalTag} /> 
                     )
                 )
             }

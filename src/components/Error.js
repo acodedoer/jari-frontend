@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Loading = () =>{
+const Loading = (props) =>{
     return(
         <div class="error">
         <div class="error-logo">
@@ -26,7 +26,7 @@ const Loading = () =>{
                 <path d="M1321.8-0.36774a81.294,87.797,0,0,1,-81.3,87.798" transform="matrix(1.9681695,0,0,1.8223791,-2332.404,19.866159)" stroke="#4b67a1" stroke-dasharray="none" stroke-miterlimit="4" stroke-width="5.06898069" fill="none" stroke-linecap="round"/> 
             </svg>
         </div>
-        <h4>An error occured</h4>
+        <h4>{props.language==="Hausa"?"An samu akasi":"An error occured"}</h4>
         </div>
     )
 }

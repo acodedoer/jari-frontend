@@ -12,8 +12,8 @@ const DisplayAllProverbs = (props) => {
         if (error) return (<Error/>);
 
       return (
-        data.allProverbs.map((proverb) => (
-            <ProverbComponent proverb ={proverb} setMode = {props.setMode} setLiteralTag={props.setLiteralTag} setMetaphoricalTag={props.setMetaphoricalTag} /> ))
+        data.allProverbs.map((proverb, index) => (
+            <ProverbComponent key={index} proverb ={proverb} setMode = {props.setMode} setLiteralTag={props.setLiteralTag} setMetaphoricalTag={props.setMetaphoricalTag} /> ))
       );
     }
 

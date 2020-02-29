@@ -16,11 +16,11 @@ const AntSwitch = withStyles(theme => ({
     padding: 4,
     color: theme.palette.grey[500],
     '&$checked': {
-      transform: 'translateX(12px)',
+      transform: 'translateX(8px)',
       color: theme.palette.common.white,
       '& + $track': {
         opacity: 1,
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: '#4b67a1',
         borderColor: theme.palette.primary.main,
       },
     },

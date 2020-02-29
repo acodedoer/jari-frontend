@@ -9,7 +9,6 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import AllIcon from '@material-ui/icons/DoneAll';
-import AboutIcon from '@material-ui/icons/Info';
 import MetaphoricalIcon from '@material-ui/icons/Comment';
 import Collapse from '@material-ui/core/Collapse';
 import LiteralIcon from '@material-ui/icons/ModeComment';
@@ -19,7 +18,7 @@ import LiteralTagsLinks from './LiteralTagsLinks';
 import MetaphoricalTagsLinks from './MetaphoricalTagsLinks';
 import LanguageIcon from '@material-ui/icons/Translate';
 import Language from './Language'
-import {ABOUT, ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS} from '../Translations/MenuTranslations'
+import {ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS} from '../translations/MenuTranslations'
 
 
 const useStyles = makeStyles({
@@ -124,13 +123,14 @@ export default function NavigationMenu(props) {
       </Collapse>
       <Divider  className={classes.divider}/>
 
-      <ListItem button onClick={()=>{props.setAbout(true); props.setMode('about'); if(props.language==='Hausa'){props.setNavTitle(ABOUT.hausa)} else{props.setNavTitle(ABOUT.english)}; setState({ ...state, [side]: false })}}>
+      {/* <ListItem button onClick={()=>{props.setAbout(true); props.setMode('about'); if(props.language==='Hausa'){props.setNavTitle(ABOUT.hausa)} else{props.setNavTitle(ABOUT.english)}; setState({ ...state, [side]: false })}}>
         <ListItemIcon className={classes.item}>
           <AboutIcon style={{color:"#55b092"}} />
         </ListItemIcon>
         {props.language==='Hausa'?<ListItemText primary={ABOUT.hausa} />:<ListItemText primary={ABOUT.english} />}
       </ListItem>
-      <Divider className={classes.divider}/>
+      <Divider className={classes.divider}/> */}
+
       <ListItem button >
         <ListItemIcon className={classes.item}>
           <LanguageIcon />

@@ -35,7 +35,7 @@ export default function Navigation(props) {
   return (
     <AppContext.Consumer>
       {(state)=>(
-        <div className={classes.root}  borderRadius = "50%" style={{borderRadius:"50%"}}>
+        <div className={classes.root} style={{borderRadius:"50%"}}>
         <AppBar position="fixed" style={{ background: '#4b67a1' }}>
           <Toolbar>
             <IconButton

@@ -11,7 +11,7 @@ const DisplayProverbs = (props) => {
       {(state)=>{
         if(state.mode === "all"){
           return(
-            <Display proverbs = {props.proverbs}/>
+            <Display proverbs = {props.proverbs} language={state.language}/>
             )
         }
         else if(state.mode === "literal"){

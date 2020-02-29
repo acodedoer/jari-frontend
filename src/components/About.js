@@ -4,8 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {AppContext} from  '../App'
-import {ABOUT} from '../Translations/MenuTranslations'
-import {ABOUTDESCRIPTION} from '../Translations/AboutTranslations'
+import {ABOUT} from '../translations/MenuTranslations'
+import {ABOUTDESCRIPTION} from '../translations/AboutTranslations'
 
 const useStyles = makeStyles({
   root: {
@@ -27,7 +27,6 @@ const useStyles = makeStyles({
 
 export default function About() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
     <AppContext.Consumer>
