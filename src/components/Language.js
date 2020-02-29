@@ -41,7 +41,7 @@ const AntSwitch = withStyles(theme => ({
 
 export default function LanguageSwitch(props) {
   const [state, setState] = React.useState({
-    checkedC: true,
+    checkedC: props.language==="Hausa"? true: false,
   });
 
   const handleChange = name => event => {
@@ -56,9 +56,9 @@ export default function LanguageSwitch(props) {
           <Grid item>English</Grid>
           <Grid item>
             <AntSwitch
-              checked={state.checkedC}
               onChange={handleChange('checkedC')}
-              value="checkedC"
+              checked={state.checkedC}
+              value={"checkedC"}
             />
           </Grid>
           <Grid item>Hausa</Grid>

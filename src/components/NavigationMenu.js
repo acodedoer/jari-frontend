@@ -18,7 +18,7 @@ import LiteralTagsLinks from './LiteralTagsLinks';
 import MetaphoricalTagsLinks from './MetaphoricalTagsLinks';
 import LanguageIcon from '@material-ui/icons/Translate';
 import Language from './Language'
-import {ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS} from './MenuTranslations'
+import {ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS} from './translations/MenuTranslations'
 
 
 const useStyles = makeStyles({
@@ -135,7 +135,7 @@ export default function NavigationMenu(props) {
         <ListItemIcon className={classes.item}>
           <LanguageIcon />
         </ListItemIcon>
-        <Language setLanguage={props.setLanguage}/>
+        <Language language={props.language} setLanguage={props.setLanguage}/>
       </ListItem>
       <Divider className={classes.divider}/>
     </List>
