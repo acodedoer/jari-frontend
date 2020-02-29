@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProverbComponent from './Proverb'
 import InfiniteScroll from "react-infinite-scroll-component";
-import {LOADING} from './translations/MenuTranslations'
+import {LOADING} from './MenuTranslations'
 
 class Display extends Component {
     constructor(props) {
