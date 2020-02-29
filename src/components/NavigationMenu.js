@@ -18,7 +18,7 @@ import LiteralTagsLinks from './LiteralTagsLinks';
 import MetaphoricalTagsLinks from './MetaphoricalTagsLinks';
 import LanguageIcon from '@material-ui/icons/Translate';
 import Language from './Language'
-import {ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS} from '../translations/MenuTranslations'
+import {ALLPROVERBS, LITERALTAGS, METAPHORICALTAGS} from './translations/MenuTranslations'
 
 
 const useStyles = makeStyles({
