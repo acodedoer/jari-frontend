@@ -4,8 +4,9 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {AppContext} from  '../App'
-import {ABOUTDESCRIPTION} from './translations/AboutTranslations'
 import {ABOUT} from './translations/MenuTranslations'
+import {ABOUTDESCRIPTION} from './translations/AboutTranslations'
+
 
 const useStyles = makeStyles({
   root: {
