@@ -7,7 +7,6 @@ import Error from './Error'
 
 
 const DisplayProverbsByLiteralTag = (props) => {
-  console.log(props.tag)
   const {data, loading, error} = useQuery(gql`{
       allProverbs(where: {
         publish : true,

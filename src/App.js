@@ -24,17 +24,14 @@ class App extends Component{
 
     this.setMode = (new_mode) => {
       this.setState({mode: new_mode})
-      console.log(this.state.mode)
     }
 
     this.setLiteralTag = (new_tag) => {
       this.setState({literal_tag: new_tag})
-      console.log(this.state.literal_tag)
     }
 
     this.setMetaphoricalTag = (new_tag) => {
       this.setState({metaphorical_tag: new_tag})
-      console.log(this.state.metaphorical_tag)
     }
 
     this.setAbout = (state)=>{
